@@ -1,0 +1,40 @@
+.venv/
+
+# Исключение конфигураций IDE
+.idea/  # PyCharm/IntelliJ
+.vscode/  # Visual Studio Code
+
+# Python-байт-коды и кэш
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Логи и временные файлы
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Файлы и директории тестов
+htmlcov/
+.tox/
+.cache/
+.coverage
+pytest_cache/
+
+# Исключение данных Django
+db.sqlite3
+*.db
+media/
+
+# Настройки окружения и системные файлы
+.env
+*.env
+*.config
+*.ini
+
+# Исключение файлов Mac и Windows
+.DS_Store
+Thumbs.db
