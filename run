@@ -1,1 +1,1 @@
-ollama run llama3.1:8b
+ollama run lama3.1:latest
