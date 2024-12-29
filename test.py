@@ -1,6 +1,12 @@
-import requests
+from elevenlabs import save
+from elevenlabs.client import ElevenLabs
+from decouple import config
 
-url = "http://127.0.0.1:11434/api/generate"
-response = requests.get(url)
-print("Status Code:", response.status_code)
-print("Response Body:", response.text)
+KEY = config('ELEVENLABS_TOKEN')
+client = ElevenLabs(api_key=KEY)
+
+response = client.voices.get_all()
+audio = client.generate(text="тест 1, тест 2, тест 3", voice=response.voices[6])
+print(response.voices)
+
+save(audio, "output_audio.mp3")
