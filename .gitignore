@@ -2,6 +2,7 @@
 
 # Исключение конфигураций IDE
 .idea/  # PyCharm/IntelliJ
+.idea
 .vscode/  # Visual Studio Code
 
 # Python-байт-коды и кэш

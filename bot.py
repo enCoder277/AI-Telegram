@@ -3,8 +3,9 @@
 валидация при воде (message)
 реализовать историю чата и память чата
 реализовать выбор между текстом и гс
+пофиксить .idea в репозитории
+добавить мп3 в .env
 доделать help
-вывод гс
 """
 
 import asyncio
@@ -37,7 +38,6 @@ async def cmd_start(message: types.Message):
         "Давай поговорим? 😊"
     )
     await message.answer(description)
-
 @dp.message(Command("help"))
 async def cmd_help(message: types.Message):
     help_text = (
@@ -47,9 +47,6 @@ async def cmd_help(message: types.Message):
         "Попробуй написать что-нибудь, и я постараюсь тебе помочь!"
     )
     await message.answer(help_text)
-
-
-
 def text_response_ollama(prompt: str, model_name: str = "your_model_name"):
     try:
         response = ollama.chat(model=model_name, messages=[{'role': 'user', 'content': prompt}])
@@ -83,7 +80,6 @@ async def handle_message(message: types.Message):
         ollama_response = audio_response_ollama(user_text, "llama3.1:latest")
         audio_file = FSInputFile(ollama_response, filename='EXAMPLE')
         await message.answer_audio(audio=audio_file)
-        await message.answer_voice(audio=audio_file) #- передать сюда ссылку на файл (str) локального файла через InputFile.
     if USER_CHOICE == False:
         ollama_response = text_response_ollama(user_text, "llama3.1:latest")
         await message.answer(ollama_response)
