@@ -2,8 +2,6 @@
 перевести на API llm
 валидация при воде (message)
 реализовать историю чата и память чата
-добавить мп3 в .env
-сделать страницу приветствия и вывести набор команд
 """
 
 import asyncio
@@ -39,8 +37,8 @@ async def cmd_start(message: types.Message):
     )
     kb = InlineKeyboardMarkup(
         inline_keyboard=[
-            [InlineKeyboardButton(text="АУДИО", callback_data="set_audio_mode")],
-            [InlineKeyboardButton(text="ТЕКСТ", callback_data="set_text_mode")]
+            [InlineKeyboardButton(text="Голосовые сообщения 🎙️", callback_data="set_audio_mode")],
+            [InlineKeyboardButton(text="Текстовые сообщения 📝", callback_data="set_text_mode")]
         ]
     )
     await message.answer(description, reply_markup=kb)
@@ -55,14 +53,12 @@ async def cmd_settings(message: types.Message):
         f"Текущий режим: {current_mode}\n\n"
         f"Вы можете изменить режим с помощью кнопок ниже."
     )
-
     kb = InlineKeyboardMarkup(
         inline_keyboard=[
             [InlineKeyboardButton(text="Текстовые сообщения 📝", callback_data="set_text_mode")],
             [InlineKeyboardButton(text="Голосовые сообщения 🎙️", callback_data="set_audio_mode")],
         ]
     )
-
     await message.answer(settings_description, reply_markup=kb, parse_mode="Markdown")
 
 
@@ -85,7 +81,6 @@ async def cmd_help(message: types.Message):
             [InlineKeyboardButton(text="/help", callback_data="call_cmd_help")],
         ]
     )
-
     await message.answer(help_text, parse_mode="Markdown", reply_markup=kb)
 
 
