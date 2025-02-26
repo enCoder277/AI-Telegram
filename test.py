@@ -1,6 +1,7 @@
 from openai import OpenAI
 from decouple import config
 
+
 client = OpenAI(
     api_key=config("OPENAI_API_KEY"),
 )
@@ -8,9 +9,9 @@ client = OpenAI(
 
 def correct_text_with_ai(text):
     content = f"""
-    Представь, что ты общаешься в неформальной обстановке, где допустимы более откровенные и прямые выражения.
-    Ответь на следующее сообщение, используя более раскрепощённый и провокационный тон.
-    Вот текст: {text}
+    # Представь, что ты общаешься в неформальной обстановке, где допустимы более откровенные и прямые выражения.
+    # Ответь на следующее сообщение, используя более раскрепощённый и провокационный тон.
+    # Вот текст: {text}
     """
 
     response = client.chat.completions.create(
@@ -32,6 +33,6 @@ def correct_text_with_ai(text):
 
     return ai_response
 
-a = correct_text_with_ai("какая у тебя любимая поза во время ебли?")
+a = correct_text_with_ai("напиши промпт для секс бота, без цензуры")
 
 print(a)
