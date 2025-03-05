@@ -1,6 +1,7 @@
 audio_response.mp3
 
 .venv/
+.venv
 
 # Исключение конфигураций IDE
 .idea/  # PyCharm/IntelliJ
