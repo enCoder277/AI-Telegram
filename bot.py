@@ -1,3 +1,9 @@
+"""
+перевести на API llm
+валидация при воде (message)
+реализовать историю чата и память чата
+"""
+
 import asyncio
 import ollama
 import logging
